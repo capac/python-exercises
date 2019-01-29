@@ -27,9 +27,16 @@ class Vector:
     def __rmul__(self, scalar):
         return self.__mul__(scalar)
 
+    def __abs__(self):
+        return hypot(self.x, self.y)
+
+    def __bool__(self):
+        return bool(abs(self))
+
 if __name__ == '__main__':
     vec1 = Vector(4, 3)
     vec2 = Vector(2, 6)
+    vec3 = Vector(0, 0)
     print('vec1 =', vec1)
     print('vec2 =', vec2)
     print('vec1 + vec2 =', vec1 + vec2)
@@ -38,4 +45,6 @@ if __name__ == '__main__':
     print('vec2.prod(vec1) =', vec2.prod(vec1))
     print('9*vec1 =', 9*vec1)
     print('vec1*9 =', vec1*9)
-
+    print('abs(vec1) =', abs(vec1))
+    print('Is abs(vec2) > 0 ?', bool(vec2))
+    print('Is abs(vec3) > 0 ?', bool(vec3))
