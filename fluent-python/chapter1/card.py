@@ -1,5 +1,5 @@
 from collections import namedtuple
-from random import sample
+import random
 
 Card = namedtuple('Card', ['rank', 'suit'])
 
@@ -16,12 +16,16 @@ class FrenchDeck:
     def __getitem__(self, position):
         return self._cards[position]
 
-    # def __str__(self):
-    #     return '{} of {}'.format(Card.rank, Card.suit)
+    def __str__(self):
+        return '{:s} of {:s}'.format(str(Card.rank), str(Card.suit))
 
     def shuffle(self):
-        return sample(self._cards, k=len(self._cards))
+        return random.sample(self._cards, k=len(self._cards))
+
+    def extract_card_from_deck(self):
+        return random.choice(self._cards)
 
 if __name__ == "__main__":
     deck = FrenchDeck()
-    print(deck.shuffle())
+    # print(deck.shuffle())
+    print(deck.extract_card_from_deck())
