@@ -28,7 +28,7 @@ class Deck(Card):
         return self.cards.append(card)
 
     def __str__(self):
-        return '\n'.join([str(card) for card in self.cards])
+        return ', '.join([str(card) for card in self.cards])
 
     # def shuffle(self):
     #     return [str(card) for card in random.sample(self.cards, len(self.cards))]
@@ -55,4 +55,5 @@ if __name__ == "__main__":
     # print(deck.shuffle())
     # print(len(deck.shuffle()))
     hand = Hand()
-    print(deck.move_cards(hand, 6))
+    deck.move_cards(hand, 6)
+    print(hand)
