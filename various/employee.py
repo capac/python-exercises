@@ -48,13 +48,15 @@ class Developer(Employee):
     def __repr__(self):
         return f'Developer({self.first}, {self.last}, {self.pay}, {self.prog_lang})'
 
-    def add_lang(self, prog):
-        if prog not in self.prog_lang:
-            self.prog_lang.append(prog)
+    def add_lang(self, progs):
+        for prog in progs:
+            if prog not in self.prog_lang:
+                self.prog_lang.append(prog)
 
-    def remove_lang(self, prog):
-        if prog in self.prog_lang:
-            self.prog_lang.remove(prog)
+    def remove_lang(self, progs):
+        for prog in progs:
+            if prog in self.prog_lang:
+                self.prog_lang.remove(prog)
 
 
 if __name__ == '__main__':
@@ -62,11 +64,11 @@ if __name__ == '__main__':
     print('Employee 1:', emp_1)
     date = datetime.date(2019, 3, 14)
     print(Employee.is_workday(date))
-    emp_2 = Developer('Patricia', 'Hopkins', 55000, ['Ruby', 'C#'])
+    emp_2 = Developer('Patricia', 'Hopkins', 55000, ['C++', 'C#', 'Python', 'Ruby'])
     print('Employee 2:', emp_2)
     Developer.raise_amt = 1.08
     emp_2.apply_raise()
-    emp_2.add_lang('Python')
+    emp_2.add_lang(['Python', 'JavaScript'])
     print('Employee 2:', emp_2)
-    emp_2.remove_lang('C#')
+    emp_2.remove_lang(['C#', 'Ruby', 'Bash'])
     print(emp_2)
