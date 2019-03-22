@@ -1,5 +1,6 @@
 class Range:
     # home-built Range function
+
     def __init__(self, start, end):
         # init our Range function it's a special method
         self.start = start
@@ -20,6 +21,7 @@ class Range:
             raise StopIteration
 
 
-# this is for the loop
-for i in Range(0, 20):
-    print(i)
+if __name__ == '__main__':
+    # this is for the loop
+    for i in Range(0, 20):
+        print(i)
