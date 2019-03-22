@@ -36,22 +36,37 @@ class Employee:
 
 class Developer(Employee):
     '''Template for company developer, modelled on company employee'''
-    raise_amt = 1.1
+    raise_amt = 1.06
 
-    def __init__(self, first, last, pay, prog_lang):
+    def __init__(self, first, last, pay, prog_lang=None):
         super().__init__(first, last, pay)
-        self.prog_lang = prog_lang
+        if prog_lang is None:
+            self.prog_lang = []
+        else:
+            self.prog_lang = prog_lang
 
     def __repr__(self):
         return f'Developer({self.first}, {self.last}, {self.pay}, {self.prog_lang})'
 
+    def add_lang(self, prog):
+        if prog not in self.prog_lang:
+            self.prog_lang.append(prog)
+
+    def remove_lang(self, prog):
+        if prog in self.prog_lang:
+            self.prog_lang.remove(prog)
+
 
 if __name__ == '__main__':
     emp_1 = Employee('Sue', 'Mitchell', 70000)
-    print(emp_1)
+    print('Employee 1:', emp_1)
     date = datetime.date(2019, 3, 14)
     print(Employee.is_workday(date))
     emp_2 = Developer('Patricia', 'Hopkins', 55000, ['Ruby', 'C#'])
-    Developer.raise_amt = 1.2
+    print('Employee 2:', emp_2)
+    Developer.raise_amt = 1.08
     emp_2.apply_raise()
+    emp_2.add_lang('Python')
+    print('Employee 2:', emp_2)
+    emp_2.remove_lang('C#')
     print(emp_2)
