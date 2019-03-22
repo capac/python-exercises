@@ -43,10 +43,11 @@ class Developer(Employee):
         if prog_lang is None:
             self.prog_lang = []
         else:
-            self.prog_lang = prog_lang
+            self.prog_lang = [prog_lang]
 
     def __repr__(self):
-        return f'Developer({self.first}, {self.last}, {self.pay}, {self.prog_lang})'
+        prog_lang = self.prog_lang[0] if len(self.prog_lang) == 1 else self.prog_lang
+        return f'Developer({self.first}, {self.last}, {self.pay}, {prog_lang})'
 
     def add_lang(self, progs):
         for prog in progs:
@@ -64,7 +65,7 @@ if __name__ == '__main__':
     print('Employee 1:', emp_1)
     date = datetime.date(2019, 3, 14)
     print(Employee.is_workday(date))
-    emp_2 = Developer('Patricia', 'Hopkins', 55000, ['C++', 'C#', 'Python', 'Ruby'])
+    emp_2 = Developer('Patricia', 'Hopkins', 55000, 'C++')
     print('Employee 2:', emp_2)
     Developer.raise_amt = 1.08
     emp_2.apply_raise()
