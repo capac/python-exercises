@@ -71,5 +71,5 @@ if __name__ == '__main__':
     emp_2.apply_raise()
     emp_2.add_lang(['Python', 'JavaScript'])
     print('Employee 2:', emp_2)
-    emp_2.remove_lang(['C#', 'Ruby', 'Bash'])
+    emp_2.remove_lang(['C#', 'Ruby', 'Python'])
     print(emp_2)
