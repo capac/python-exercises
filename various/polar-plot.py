@@ -18,16 +18,16 @@ ax = fig.add_subplot(111, projection='polar')
 c = ax.scatter(theta, r, c=colors, s=area, cmap='hsv', alpha=0.6, edgecolor='k')
 lw=1.5
 c.set_linewidth(lw)
-plt.tick_params(axis='both', which='both', bottom=False, top=False, labelbottom=False, right=False, left=False, labelleft=False)
+# plt.tick_params(axis='both', which='both', bottom=False, top=False, labelbottom=False, right=False, left=False, labelleft=False)
 plt.setp(ax.spines.values(), linewidth=lw)
 plt.subplots_adjust(left=0.05, right=0.95, top=0.95, bottom=0.05)
-# fontsize=8
-# for tick in ax.xaxis.get_major_ticks():
-#     tick.label1.set_fontsize(fontsize)
-#     tick.label1.set_fontweight('bold')
-# for tick in ax.yaxis.get_major_ticks():
-#     tick.label1.set_fontsize(fontsize)
-#     tick.label1.set_fontweight('bold')
+fontsize=8
+for tick in ax.xaxis.get_major_ticks():
+    tick.label1.set_fontsize(fontsize)
+    tick.label1.set_fontweight('bold')
+for tick in ax.yaxis.get_major_ticks():
+    tick.label1.set_fontsize(fontsize)
+    tick.label1.set_fontweight('bold')
 plt.grid(linewidth=lw, alpha=0.4, color='k')
 plt.show()
 # plt.savefig('polar-plot.png', dpi=144, format='png')
