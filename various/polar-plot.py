@@ -15,15 +15,15 @@ colors = theta
 
 fig = plt.figure()
 ax = fig.add_subplot(111, projection='polar')
-c = ax.scatter(theta, r, c=colors, s=area, cmap='hsv', alpha=0.75)
-c.set_linewidth(2)
-fontsize=7
+c = ax.scatter(theta, r, c=colors, s=area, cmap='hsv', alpha=0.75, edgecolor='k')
+c.set_linewidth(0.5)
+fontsize=8
 for tick in ax.xaxis.get_major_ticks():
     tick.label1.set_fontsize(fontsize)
     tick.label1.set_fontweight('bold')
 for tick in ax.yaxis.get_major_ticks():
     tick.label1.set_fontsize(fontsize)
     tick.label1.set_fontweight('bold')
-plt.grid(linewidth=1, alpha=0.4, color='k')
+plt.grid(linewidth=1.5, alpha=0.4, color='k')
 plt.show()
 # plt.savefig('polar-plot.png', dpi=144, format='png')
