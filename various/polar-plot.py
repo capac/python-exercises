@@ -10,10 +10,20 @@ np.random.seed(196)
 N = 150
 r = 2 * np.random.rand(N)
 theta = 2 * np.pi * np.random.rand(N)
-area = 200 * r**2
+area = 300 * r**2
 colors = theta
 
 fig = plt.figure()
 ax = fig.add_subplot(111, projection='polar')
 c = ax.scatter(theta, r, c=colors, s=area, cmap='hsv', alpha=0.75)
-plt.savefig('polar-plot.png', dpi=144, format='png')
+c.set_linewidth(2)
+fontsize=7
+for tick in ax.xaxis.get_major_ticks():
+    tick.label1.set_fontsize(fontsize)
+    tick.label1.set_fontweight('bold')
+for tick in ax.yaxis.get_major_ticks():
+    tick.label1.set_fontsize(fontsize)
+    tick.label1.set_fontweight('bold')
+plt.grid(linewidth=1, alpha=0.4, color='k')
+plt.show()
+# plt.savefig('polar-plot.png', dpi=144, format='png')
