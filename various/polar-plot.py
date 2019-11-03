@@ -17,6 +17,7 @@ fig = plt.figure()
 ax = fig.add_subplot(111, projection='polar')
 c = ax.scatter(theta, r, c=colors, s=area, cmap='hsv', alpha=0.75, edgecolor='k')
 c.set_linewidth(0.5)
+plt.setp(ax.spines.values(), linewidth=1.5)
 fontsize=8
 for tick in ax.xaxis.get_major_ticks():
     tick.label1.set_fontsize(fontsize)
