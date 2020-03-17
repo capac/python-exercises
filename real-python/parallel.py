@@ -1,5 +1,5 @@
 import collections
-import multiprocessing
+import concurrent.futures
 import os
 import time
 from pprint import pprint
@@ -34,10 +34,10 @@ def transform(x):
 
 start = time.time()
 
-pool = multiprocessing.Pool()
-result = pool.map(transform, scientists)
+with concurrent.futures.ProcessPoolExecutor() as executor:
+    result = executor.map(transform, scientists)
 
 end = time.time()
 
 print(f'\nTime to complete: {end - start:.2f}s\n')
-pprint(result)
+pprint(tuple(result))
