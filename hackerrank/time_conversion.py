@@ -1,6 +1,7 @@
 #! /usr/bin/env python3
 
 import os
+from pathlib import Path
 
 # Complete the timeConversion function below.
 
@@ -18,8 +19,11 @@ def timeConversion(s):
 
 
 if __name__ == '__main__':
-    f = open(os.environ['OUTPUT_PATH'], 'w')
-    s = input()
+    home = Path(os.environ['HOME'])
+    output_dir = r'Programming/Python/python-exercises/hackerrank'
+    f = open(home / output_dir / 'results.txt', 'a')
+    s = input('Provide time imput: ')
     result = timeConversion(s)
+    print('''Results saved to 'results.txt' file''')
     f.write(result + '\n')
     f.close()
