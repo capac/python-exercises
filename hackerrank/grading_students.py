@@ -9,6 +9,7 @@
 
 def gradingStudents(grades):
     # Write your code here
+    grades = [int(g) for g in grades.split(' ')]
     new_grades = []
     for grade in grades:
         if grade < 38:
