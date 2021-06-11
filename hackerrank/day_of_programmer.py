@@ -6,7 +6,7 @@ def dayOfProgrammer(year):
     months = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
     prog_day = 256
     # Gregorian calendar
-    if year > 1918 and ((year % 4 == 0 and year % 100 != 0) or (year % 400 == 0)):
+    if year > 1918 and (year % 4 == 0 and (year % 100 != 0 or year % 400 == 0)):
         months[1] += 1
     # Jump from Julian to Gregorian
     elif year == 1918:
