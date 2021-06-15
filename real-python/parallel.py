@@ -24,6 +24,7 @@ scientists = (
 pprint(scientists)
 print()
 
+
 def transform(x):
     print(f'Process {os.getpid()} working record {x.name}')
     time.sleep(1)
