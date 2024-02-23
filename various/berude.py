@@ -1,5 +1,4 @@
 import re
-import time
 import sys
 
 import requests
@@ -34,7 +33,8 @@ rude_words = [
 
 
 def find_rude_rhyme(word, cache):
-    # takes a word and finds rude rhyme, returns rude substitute or None if none found
+    # takes a word and finds rude rhyme, returns
+    # rude substitute or None if none found
     result = cache.get(word, word)
     if result == word:
         return result
@@ -43,7 +43,8 @@ def find_rude_rhyme(word, cache):
 
 def get_all_rhymes(word):
     candidate = (re.sub(r'[^\w]', ' ', word)).split()[-1]
-    json_output = requests.get("https://api.datamuse.com/words", params={'rel_rhy': candidate}).json()
+    json_output = requests.get("https://api.datamuse.com/words",
+                               params={'rel_rhy': candidate}).json()
     rhyming_words = []
     for rhyme in json_output:
         rhyming_words.append(rhyme['word'])
@@ -64,6 +65,7 @@ def get_sonnets():
             sonnet = True
     next(textiter)
     return textiter
+
 
 def load_sonnet(textiter):
     poem = []
@@ -90,18 +92,19 @@ def replace_words(sonnet, cache):
 
 def main():
     textiter = get_sonnets()
-    # print(re quests.get("https://api.datamuse.com/words", params={'rel_rhy': 'cat'}).json())
+    # print(re quests.get("https://api.datamuse.com/words",
+    #                     params={'rel_rhy': 'cat'}).json())
     print("PRECACHING...")
     cache = {}
     for word in rude_words:
         for rhyme in get_all_rhymes(word):
-           cache[rhyme] = word
+            cache[rhyme] = word
 
     while True:
         print("---")
         sonnet = load_sonnet(textiter)
         rude_sonnet = replace_words(sonnet, cache)
-        joined = "\n".join(" ".join(l) for l in rude_sonnet)
+        joined = "\n".join(" ".join(lb) for lb in rude_sonnet)
         if '\x1b' in joined:
             print(joined)
             input()

@@ -31,7 +31,10 @@ def normal_cdf(x: float, mu: float = 0, sigma: float = 1) -> float:
 # plt.show()
 
 
-def inverse_normal_cdf(p: float, mu: float = 0, sigma: float = 1, tol: float = 1e-5) -> float:
+def inverse_normal_cdf(p: float,
+                       mu: float = 0,
+                       sigma: float = 1,
+                       tol: float = 1e-5) -> float:
     if mu != 0 or sigma != 1:
         return mu + sigma * inverse_normal_cdf(p, tol=tol)
     low_z = -10.0
