@@ -31,7 +31,7 @@ def main() -> None:
 
     # list comprehension
     start = time.perf_counter()
-    adult_names = [u["name"].upper() for u in adult_users if u["age"] >= 18]
+    adult_names = [u["name"].upper() for u in users if u["age"] >= 18]
     end = time.perf_counter()
     print("List comprehension:", end - start)
 
