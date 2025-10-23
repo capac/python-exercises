@@ -3,19 +3,17 @@ def getKCount(s):
         return 0
     count = 0
     for k in range(1, s+1):
-        sum_ = 0
-        tmp_list = []
+        arr = []
         for i in range(k, s+1):
-            tmp_list.append(i)
-            sum_ += i
-            if sum_ == s:
-                print(f'Array: {tmp_list}, sum: {sum(tmp_list)}')
+            arr.append(i)
+            if sum(arr) == s:
+                print(f'Array: {arr}, sum: {sum(arr)}')
                 count += 1
-                tmp_list = []
+                break
     return count
 
 
 if __name__ == "__main__":
-    s = 30
+    s = 60
     result = getKCount(s)
     print(result)
